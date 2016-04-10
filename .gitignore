@@ -15,3 +15,6 @@ buildNumber.properties
 .project
 .classpath
 .idea/
+bin/
+Servers/
+RemoteSystemsTempFiles/
