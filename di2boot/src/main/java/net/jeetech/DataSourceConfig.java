@@ -46,7 +46,7 @@ public class DataSourceConfig {
   @Value("${spring.datasource.idleTimeout}")
   private int idleTimeout;
 
-//  @Bean
+  @Bean
   public DataSource primaryDataSource() {
     Properties dsProps = new Properties();
     dsProps.put("url", dataSourceUrl);
