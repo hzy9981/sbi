@@ -1,6 +1,5 @@
 package net.jeetech;
 
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,8 +14,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestOperations;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -31,9 +30,6 @@ public class IdiomUiApplication {
 
 
   @Autowired
-  private Idioms idioms;
-
-  @Autowired
   private IdiomService idiomService;
 
   @RequestMapping("/choose")
@@ -42,17 +38,26 @@ public class IdiomUiApplication {
 
   }
 
-  @RequestMapping(value = "/", produces = "text/html")
+  @RequestMapping(value = "/", produces = "application/json; charset=UTF-8")
   public String home() {
 //    return idioms.idiom();
 //    return idiomService.idiom();
     return idiomUiPropeties().getPrefix() + idiomService.idiom();
   }
 
+  @RequestMapping(value = "/camera/{path}",method = RequestMethod.GET)
+  public String findByCamera(@RequestParam(value="path",required=false) String path) {
+//    return idioms.idiom();
+//    return idiomService.idiom();
+    return idiomService.findByCamera(path);
+  }
+
   @FeignClient("idioms")
   public interface Idioms {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String idiom();
+    @RequestMapping(method = RequestMethod.GET, value = "/camera/{path}")
+    public String findByCamera(@RequestParam(value="path",required=false) String path);
   }
 
   @Bean

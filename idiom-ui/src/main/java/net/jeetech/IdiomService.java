@@ -9,15 +9,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class IdiomService {
-  @Autowired
-  private IdiomUiApplication.Idioms idioms;
+	@Autowired
+	private IdiomUiApplication.Idioms idioms;
 
-  @HystrixCommand(fallbackMethod = "defaultIdiom")
-  public String idiom() {
-    return idioms.idiom();
-  }
+	@HystrixCommand(fallbackMethod = "defaultIdiom")
+	public String idiom() {
+		return idioms.idiom();
+	}
 
-  public String defaultIdiom() {
-    return "No pain, no gain";
-  }
+	public String defaultIdiom() {
+		return "No pain, no gain";
+	}
+
+	public String findByCamera(String path) {
+		return idioms.findByCamera(path);
+	}
 }
