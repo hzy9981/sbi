@@ -31,10 +31,16 @@ public class JpaApplicationTests {
 		User user = new User();
 		user.setName("spring.jpa.hibernate.ddl-auto=create-drop");
 		user.setAge(45);
+<<<<<<< HEAD
 		user.setEmail("qiuzhanghua7@icloud.com");
 		user.setPassword("a4ea7b3e1155ff137d603e415c0425d9");
 //	    userService.persist(user);
 	    userService.find("a4ea7b3e1155ff137d603e415c0425d9");
+=======
+//		user.setEmail("qiuzhanghua5@icloud.com");
+		user.setPassword("password");
+    userService.persist(user);
+>>>>>>> refs/remotes/origin/master
 	}
 
 }

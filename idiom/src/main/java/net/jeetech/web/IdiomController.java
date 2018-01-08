@@ -30,10 +30,13 @@ public class IdiomController {
 //    return idiomService.idiom();
     return ocrService.ocr(path,null);
   }
+<<<<<<< HEAD
   @RequestMapping(method = RequestMethod.GET, value = "/detect")
   public String detect(@RequestParam(value="path",required=false) String path) {
 	  return faceService.detect(path);
   };
+=======
+>>>>>>> refs/remotes/origin/master
   
   @Autowired
   FaceTest faceService;
