@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Jpas
+
+server:
+  port: 8071
+

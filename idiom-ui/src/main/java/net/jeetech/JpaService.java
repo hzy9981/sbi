@@ -8,25 +8,25 @@ import org.springframework.stereotype.Service;
  * Created by qiuzhanghua on 16/5/26.
  */
 @Service
-public class IdiomService {
+public class JpaService {
 	@Autowired
-	private IdiomUiApplication.Idioms idioms;
+	private IdiomUiApplication.Jpas jpas;
 
-	@HystrixCommand(fallbackMethod = "defaultIdiom")
-	public String idiom() {
-		return idioms.idiom();
-	}
 
 	public String defaultIdiom() {
 		return "No pain, no gain";
 	}
 
 	public String findByCamera(String path) {
-		return idioms.findByCamera(path);
+		return jpas.findByCamera(path);
 	}
 
-	public String detect(String path) {
+	public String addface(String img ,String path) {
+		return jpas.addface(img,path);
+	}
+
+	public String kv(String  face_token) {
 		// TODO Auto-generated method stub
-		return idioms.detect(path);
+		return jpas.kv(face_token);
 	}
 }
