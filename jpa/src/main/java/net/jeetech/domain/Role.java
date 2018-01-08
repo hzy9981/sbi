@@ -1,4 +1,4 @@
-package net.jeetch.domain;
+package net.jeetech.domain;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;

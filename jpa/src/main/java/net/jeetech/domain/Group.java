@@ -1,4 +1,4 @@
-package net.jeetch.domain;
+package net.jeetech.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
@@ -27,7 +27,7 @@ public class Group implements Serializable {
       "GROUP_CODE", "ROLE_CODE" }))
   private Set<Role> roles;
 
-  @ManyToMany(mappedBy="groups")
-  private Set<User> users;
+//  @ManyToMany(mappedBy="groups")
+//  private Set<User> users;
 
 }

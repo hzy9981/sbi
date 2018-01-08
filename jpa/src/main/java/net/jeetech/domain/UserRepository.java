@@ -1,4 +1,4 @@
-package net.jeetch.domain;
+package net.jeetech.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

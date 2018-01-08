@@ -1,6 +1,9 @@
-package net.jeetch;
+package net.jeetech;
 
-import net.jeetch.service.UserService;
+import net.jeetech.JpaApplication;
+import net.jeetech.domain.User;
+import net.jeetech.service.UserService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -11,7 +14,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 
-import net.jeetch.domain.User;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,9 +29,9 @@ public class JpaApplicationTests {
 	public void contextLoads() {
 		System.out.println(entityManagerFactory);
 		User user = new User();
-		user.setName("邱张华");
+		user.setName("spring.jpa.hibernate.ddl-auto=create-drop");
 		user.setAge(45);
-		user.setEmail("qiuzhanghua@icloud.com");
+//		user.setEmail("qiuzhanghua5@icloud.com");
 		user.setPassword("password");
     userService.persist(user);
 	}

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.jeetech.service.FaceTest;
+import net.jeetech.service.YingClient;
 
 import java.util.Random;
 
@@ -23,8 +24,17 @@ public class IdiomController {
 //    return idiomService.idiom();
     return faceService.findByCamera(path);
   }
+  @RequestMapping(value = "/ocr", method = RequestMethod.GET)
+  public String ocr(@RequestParam(value="path",required=false) String path) {
+//    return idioms.idiom();
+//    return idiomService.idiom();
+    return ocrService.ocr(path,null);
+  }
+  
   @Autowired
   FaceTest faceService;
+  @Autowired
+  YingClient ocrService;
   @RequestMapping("/")
   public String idiom() {
     return IDIOMS[random.nextInt(IDIOMS.length)];

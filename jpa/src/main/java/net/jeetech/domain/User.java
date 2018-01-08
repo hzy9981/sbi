@@ -1,4 +1,4 @@
-package net.jeetch.domain;
+package net.jeetech.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -44,7 +44,17 @@ public class User implements Serializable {
       "USER_CODE", "ROLE_CODE" }))
   private Set<Role> roles;
 
-  public String getCode() {
+  public User(String img, String path) {
+	this.name=img;
+	this.password=path;
+	this.email=path.hashCode()+"@g.cc";//email 不能重复使用了url，同时校验了图片的重复上传
+}
+
+public User() {
+	// TODO Auto-generated constructor stub
+}
+
+public String getCode() {
     return code;
   }
 
